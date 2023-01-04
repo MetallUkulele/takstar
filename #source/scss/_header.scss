@@ -1,0 +1,106 @@
+@import "_style-default";
+
+.header {
+  position: sticky;
+  top: 0;
+  background: $colorBg;
+  z-index: 9999;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__logo {
+  }
+
+  &__nav {
+    min-width: 330px;
+    width: 400px;
+  }
+
+  &__contacts {
+  }
+
+  &__messengers {
+  }
+
+  &__cart {
+  }
+}
+
+.logo {
+  &__img {
+  }
+}
+.nav {
+  @include text-style($heading-ff, $fw-medium, $fzNav);
+  @extend %uppercase;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__item {
+  }
+
+  &__link {
+  }
+
+  &__text {
+  }
+}
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 176px;
+  @include text-style($heading-ff, $fw-medium, $fzNav);
+  @extend %uppercase;
+
+  &__text {
+    display: block;
+  }
+
+  &__arrow {
+    min-width: 15px;
+    fill: $colorTxt;
+  }
+}
+.messengers {
+	position: relative;
+  display: flex;
+  gap: 10px;
+
+  &__item {
+  }
+
+  &__link {
+  }
+
+  &__text {
+    @extend %hidden;
+  }
+
+  &__icon {
+    fill: $colorTxt;
+  }
+}
+.cart {
+  &__link {
+  }
+
+  &__text {
+		@extend %hidden;
+  }
+
+  &__icon {
+		fill: $colorTxt;
+  }
+}

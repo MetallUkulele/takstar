@@ -1,0 +1,147 @@
+@import "_style-default";
+
+.hero {
+  &__slide-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__cta {
+  }
+
+  &__title {
+    margin-top: 108px;
+    padding-left: $pSlide-cta;
+    @include text-style($heading-ff, $fw-bold, $fzHero);
+    @extend %uppercase;
+  }
+
+  &__subtitle {
+    margin-top: 25px;
+    padding-left: $pSlide-cta;
+    line-height: 1.4;
+    @include text-style($main-ff, $fw-light, $fzh3);
+  }
+
+  &__subtitle-selection {
+    @include text-style($main-ff, $fw-light, $fzh3);
+  }
+
+  &__price {
+    position: relative;
+    display: block;
+    margin-top: 35px;
+    padding-left: $pSlide-cta;
+    @include text-style($heading-ff, $fw-bold, $fzHero-price);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 140px;
+      height: 1px;
+      background-color: $colorAccent;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 90px;
+    padding-left: $pSlide-cta;
+  }
+
+  &__img {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    min-height: 750px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    @include text-style($main-ff, $fw-light, $fzBtn);
+    @extend %uppercase;
+  }
+
+  &__bullet {
+    width: 120px;
+    height: 45px;
+  }
+
+  &__bullet-text {
+    display: block;
+    padding-top: 14px;
+  }
+}
+
+.forge {
+  background-image: url("../img/hero/bg-forge.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &__subtitle {
+    max-width: 580px;
+  }
+
+  &__selection {
+    color: $forge-color;
+  }
+
+  &__img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.shade {
+  background-image: url("../img/hero/bg-shade.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &__subtitle {
+    max-width: 820px;
+  }
+
+  &__selection {
+    color: $shade-color;
+  }
+
+  &__img {
+    padding-top: 100px;
+    padding-right: 300px;
+  }
+}
+
+.flit {
+  background-image: url("../img/hero/bg-flit.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &__subtitle {
+    max-width: 650px;
+  }
+
+  &__selection {
+    color: $flit-color;
+  }
+
+  &__img {
+  }
+}
