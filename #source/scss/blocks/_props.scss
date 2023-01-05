@@ -1,0 +1,9 @@
+.props {
+	margin-bottom: 15rem;
+
+	&__list {
+		display: flex;
+    flex-direction: column;
+    gap: 10rem;
+	}	
+}

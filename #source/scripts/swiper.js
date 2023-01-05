@@ -1,7 +1,7 @@
 const swiper = new Swiper(".hero", {
-  autoplay: {
-    delay: 3000,
-  },
+  // autoplay: {
+  //   delay: 3000,
+  // },
   loop: true,
   speed: 1000,
   navigation: {

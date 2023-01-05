@@ -1,0 +1,134 @@
+.hero {
+  &__slide-container {
+    height: 75rem;
+    display: flex;
+    gap: 4rem;    
+  }
+
+  &__cta {
+    padding-top: 10.8rem;
+  }
+
+  &__title {
+    margin-bottom: 2.5rem;
+    padding-left: $pSlide-cta;
+    @include text-style($heading-ff, $fw-bold, $fzHero);
+    @extend %uppercase;
+  }
+
+  &__subtitle {
+    margin-bottom: 3.5rem;
+    padding-left: $pSlide-cta;
+    line-height: 1.4;
+    @include text-style($main-ff, $fw-light, $fzh3);
+  }
+
+  &__subtitle-selection {
+    @include text-style($main-ff, $fw-light, $fzh3);
+  }
+
+  &__price {
+    position: relative;
+    display: block;
+    padding-left: $pSlide-cta;
+    margin-bottom: 7rem;
+    @include text-style($heading-ff, $fw-bold, $fzHero-price);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 6vw;
+      height: 1px;
+      background-color: $colorAccent;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding-left: $pSlide-cta;
+  }
+
+  &__img {
+    align-self: end;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+      height: 65rem;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    @include text-style($main-ff, $fw-light, $fzBtn);
+    @extend %uppercase;
+  }
+
+  &__bullet {
+    width: 12rem;
+    height: 4.5rem;
+  }
+
+  &__bullet-text {
+    display: block;
+    padding-top: 1.4rem;
+  }
+}
+
+.swiper-slide {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.forge {
+  background-image: url("../img/hero/bg-forge.jpg");
+
+  &__subtitle {
+    max-width: 58rem;
+  }
+
+  &__selection {
+    color: $forge-color;
+  }
+
+  &__img {
+  }
+}
+
+.shade {
+  background-image: url("../img/hero/bg-shade.jpg");
+
+  &__subtitle {
+    max-width: 82rem;
+  }
+
+  &__selection {
+    color: $shade-color;
+  }
+
+  &__img {
+  }
+}
+
+.flit {
+  background-image: url("../img/hero/bg-flit.jpg");
+
+  &__subtitle {
+    max-width: 65rem;
+  }
+
+  &__selection {
+    color: $flit-color;
+  }
+
+  &__img {
+  }
+}

@@ -1,0 +1,25 @@
+html {
+	font-size: 10px;
+}
+
+body {
+  background: $colorBg;
+  color: $colorTxt;
+}
+
+.container {
+  max-width: 178rem;
+  margin: 0 auto;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.link {
+  display: block;
+  @include text-style($heading-ff, $fw-bold, 1.5rem);
+  @extend %uppercase;
+
+  .link__txt {
+    display: block;
+  }
+}

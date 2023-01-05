@@ -1,0 +1,53 @@
+//цвета
+$colorBg: #2b2323;
+$colorTxt: #ffffff;
+$colorAccent: #c51414;
+$colorBtn: #c51414;
+$colorDarkRed: #300000;
+
+//цвета для товара
+$forge-color: #ee0000;
+$shade-color: #4fc514;
+$flit-color: #c54f14;
+
+//шрифты
+$heading-ff: "Montserrat", sans-serif;
+$main-ff: "Roboto", sans-serif;
+//вес шрифтов
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+//размер шрифтов
+$fzNav: 1.4rem;
+$fzNormal: 1.6rem;
+
+$fzHero: 14rem;
+$fzh2: 4.2rem;
+$fzh3: 3.2rem;
+$fzh4: 2.4rem;
+
+$fzBtn: 1.8rem;
+$fzHero-price: 4.8rem;
+$fzProductTitle: 6.6rem;
+
+//текст капсом
+%uppercase {
+  text-transform: uppercase;
+}
+
+//отступы
+$pSlide-cta: 7vw;
+
+//прячем текст
+%hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+}
+
+%product-bg-position {
+  background-position: top 9.4rem center, top center;
+}

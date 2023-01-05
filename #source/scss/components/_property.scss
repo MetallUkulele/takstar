@@ -1,0 +1,71 @@
+.property {
+  width: 100%;
+  padding-bottom: 8rem;
+  padding-top: 8rem;
+  display: flex;
+  background-repeat: no-repeat;
+
+  &_left {
+    background-position: right center;
+  }
+
+  &_right {
+    justify-content: flex-end;
+    background-position: left center;
+  }
+
+  &_sound {
+    background-image: url("../img/prop5.png");
+  }
+
+  &_design {
+    background-image: url("../img/prop2.png");
+  }
+
+  &_microphone {
+    background-image: url("../img/prop3.png");
+  }
+
+  &_compatible {
+    background-image: url("../img/prop4.png");
+  }
+
+  &__text-wrapper {
+    min-width: 743px;
+    max-width: 743px;
+    padding: 5rem;
+    background-color: rgba(48, 0, 0, 0.2);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+
+    &_left {
+      clip-path: polygon(0 28%, 11% 0, 100% 0%, 100% 54%, 82% 100%, 0% 100%);
+      margin-left: 11.25vw;
+      background-image: url("../svg/underline_property_left.svg");
+    }
+
+    &_right {
+      clip-path: polygon(0 0, 92% 0, 100% 21%, 100% 100%, 18% 100%, 0 54%);
+      margin-right: 11.25vw;
+      padding-left: 13.4rem;
+      background-image: url("../svg/underline_property_right.svg");
+    }
+  }
+
+  &__heading {
+    margin-bottom: 2.5rem;
+    @include text-style($heading-ff, $fw-bold, $fzh3);
+    @extend %uppercase;
+  }
+
+  &__subtitle {
+    margin-bottom: 3rem;
+    @include text-style($main-ff, $fw-light, $fzh4);
+  }
+
+  &__text {
+    @include text-style($main-ff, $fw-normal, $fzNormal);
+    max-width: 47rem;
+    line-height: 1.4;
+  }
+}

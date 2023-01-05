@@ -1,0 +1,104 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: $colorBg;
+  opacity: 0.5;
+  z-index: 9999;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__nav {
+    min-width: 33rem;
+    width: 40rem;
+  }
+}
+
+.logo {
+  &__img {
+  }
+}
+.nav {
+  @include text-style($heading-ff, $fw-medium, $fzNav);
+  @extend %uppercase;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__item {
+  }
+
+  &__link {
+    transition: all 0.3s ease;
+    &:hover {
+      padding-bottom: 1rem;
+      border-bottom: 1px $colorAccent solid;
+    }
+  }
+
+  &__text {
+  }
+}
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 17.6rem;
+  @include text-style($heading-ff, $fw-medium, $fzNav);
+  @extend %uppercase;
+  cursor: pointer;
+
+  &__text {
+    display: block;
+  }
+
+  &__arrow {
+    min-width: 1.5rem;
+    fill: $colorTxt;
+  }
+}
+.messengers {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  &__item {
+  }
+
+  &__link {
+  }
+
+  &__text {
+    @extend %hidden;
+  }
+
+  &__icon {
+    fill: $colorTxt;
+  }
+}
+.cart {
+  &__link {
+  }
+
+  &__text {
+    @extend %hidden;
+  }
+
+  &__icon {
+    fill: $colorTxt;
+  }
+}

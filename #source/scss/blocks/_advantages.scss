@@ -1,0 +1,63 @@
+.advantages {
+  position: relative;
+  padding-top: 15rem;
+	margin-bottom: 10rem;
+  background: url(../svg/bg_strokes.svg) no-repeat top center;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5rem;
+    background-image: url(../svg/bg_stroke_props.svg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: calc(100% - 8vw) auto;
+    @include text-style($heading-ff, $fw-bold, calc(0.694vw + 10.675px));
+    @extend %uppercase;
+  }
+}
+
+.advantage {
+  width: 40.5rem;
+  height: 14vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_bot {
+    border-bottom: 1px solid $colorAccent;
+  }
+
+  &_guarantee {
+    background-image: url(../svg/icon_garantee.svg);
+  }
+
+  &_top {
+    border-top: 1px solid $colorAccent;
+  }
+
+  &_free-shipping {
+    background-image: url(../svg/icon_delivery.svg);
+  }
+
+  &_free-return {
+    background-image: url(../svg/icon_comeback.svg);
+  }
+
+  &__wrapper {
+    width: 100%;
+    text-align: center;
+    padding-top: 3.125vw;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: auto 2.09vw;
+  }
+
+  &__txt {
+    display: block;
+
+    &_red {
+      color: $colorAccent;
+    }
+  }
+}
