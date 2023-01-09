@@ -30,5 +30,8 @@ class Product {
       "11",
       "12",
     ];
+    this.gallery = gallery;
+    this.about = about;
+    this.complectation = complectation;
   }
 }

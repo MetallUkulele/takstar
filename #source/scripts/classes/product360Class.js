@@ -68,6 +68,7 @@ class Product360 {
         let productImage = document.createElement("img");
         productImage.classList.add("product__image");
         productImage.src = `./img/products/${product.name}/360view/${slide}.png`;
+        productImage.alt = `Навушники ${product.name}`;
 
         slideWrapper.append(productImage);
         productSlidesWrapper.append(slideWrapper);

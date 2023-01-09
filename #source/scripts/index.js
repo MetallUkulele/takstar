@@ -15,7 +15,10 @@ let forge = new Product(
     "Тип роз'єму: USB",
     "Кабель гарнітури: Ø4 мм x 1,3 м",
     "Вага нетто:  приблизно 322 г",
-  ]
+  ],
+  ["1", "2", "3", "4", "5", "6"],
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cum illum in ipsam magnam natus non nostrum obcaecati quae. Alias aliquam aut dolore fugiat impedit, inventore mollitia omnis soluta voluptate.",
+  ["Навушники", "Інструкція"]
 );
 
 let shade = new Product(
@@ -35,7 +38,10 @@ let shade = new Product(
     "Кабель гарнітури: Ø4 мм x 1,2 м",
     "Подовжувач Y-типу: Ø4 мм x 2 м",
     "Вага нетто: приблизно 235 г (без кабелю)",
-  ]
+  ],
+  ["1", "2", "3", "4"],
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cum illum in ipsam magnam natus non nostrum obcaecati quae. Alias aliquam aut dolore fugiat impedit, inventore mollitia omnis soluta voluptate.",
+  ["Навушники", "Інструкція"]
 );
 
 let flit = new Product(
@@ -55,7 +61,10 @@ let flit = new Product(
     "Кабель гарнітури: Ø4 мм x 1,3 м",
     "Подовжувач Y-типу: Ø4 мм x 2 м",
     "Вага нетто: приблизно 260 г",
-  ]
+  ],
+  ["1", "2", "3"],
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cum illum in ipsam magnam natus non nostrum obcaecati quae. Alias aliquam aut dolore fugiat impedit, inventore mollitia omnis soluta voluptate.",
+  ["Навушники", "Інструкція"]
 );
 
 let newSlider = new HeroSlider();
@@ -65,3 +74,6 @@ newSlider.createSlide();
 let prod = new Product360();
 prod.addProduct(forge, shade, flit);
 prod.createProducts();
+
+let readMoreBlock = new ProductsMore(forge, shade, flit);
+readMoreBlock.createProductMore();
