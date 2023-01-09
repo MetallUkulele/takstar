@@ -1,3 +1,9 @@
+.buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
 .btn {
   @include text-style($main-ff, $fw-medium, $fzBtn);
   @extend %uppercase;

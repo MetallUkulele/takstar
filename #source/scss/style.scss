@@ -11,109 +11,16 @@
 
 @import "components/button";
 @import "components/property";
+@import "components/section";
 
 @import "blocks/header";
 @import "blocks/hero-slider";
 @import "blocks/advantages";
 @import "blocks/props";
 @import "blocks/products";
+@import "blocks/aside";
+@import "blocks/cart";
 
-
-//products
-
-.products {
-  margin-top: 150px;
-}
-
-.section__title {
-  @include text-style($heading-ff, $fw-bold, $fzh2);
-  @extend %uppercase;
-  text-align: center;
-}
-
-.products__list {
-  margin-top: 100px;
-}
-
-.product {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  height: 750px;
-  background-repeat: no-repeat;
-
-  &_forge {
-    background-image: url("../img/products/forge_bg-text.png"),
-      url("../img/products/forge_bg.png");
-    @extend %product-bg-position;
-  }
-
-  .product__title {
-    @include text-style($heading-ff, $fw-bold, $fzProductTitle);
-    @extend %uppercase;
-    margin-top: 80px;
-    margin-bottom: 80px;
-    color: $colorAccent;
-  }
-
-  .product__advantages {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .product__advantage-text {
-    @include text-style($main-ff, $fw-normal, $fzBtn);
-
-    display: block;
-    padding-left: 57px;
-    line-height: 1.4;
-    background: url("../svg/icon_check.svg") no-repeat left center;
-  }
-
-  .product__price {
-    @include text-style($heading-ff, $fw-bold, $fzHero-price);
-    margin-top: 80px;
-    padding-left: 70px;
-    background: url("../svg/product_price_stroke.svg") no-repeat left center;
-  }
-
-  .product__buttons {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-top: 80px;
-  }
-
-  .product__center-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-
-    .product__image {
-      max-height: 500px;
-    }
-  }
-
-  .product__right-wrapper {
-    align-self: center;
-    justify-self: flex-end;
-  }
-
-  .product__props-list {
-    @include text-style($main-ff, $fw-normal, $fzBtn);
-
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .product__property {
-    padding-left: 30px;
-    background: url("../svg/product_property_stroke.svg") no-repeat left center;
-  }
-}
 
 .aside {
   width: 100%;

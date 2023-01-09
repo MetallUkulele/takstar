@@ -1,0 +1,7 @@
+.section {
+  &__title {
+    @include text-style($heading-ff, $fw-bold, $fzh2);
+    @extend %uppercase;
+    text-align: center;
+  }
+}

@@ -1,0 +1,34 @@
+class Product {
+  constructor(
+    name,
+    subtitle,
+    price,
+    img,
+    advantages,
+    props,
+    gallery,
+    about,
+    complectation
+  ) {
+    this.name = name;
+    this.subtitle = subtitle;
+    this.price = price;
+    this.img = img;
+    this.advantages = advantages;
+    this.props = props;
+    this.view360 = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+    ];
+  }
+}

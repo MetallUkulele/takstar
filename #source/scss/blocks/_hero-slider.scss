@@ -1,8 +1,10 @@
 .hero {
+  position: relative;
+
   &__slide-container {
     height: 75rem;
     display: flex;
-    gap: 4rem;    
+    gap: 4rem;
   }
 
   &__cta {
@@ -46,9 +48,6 @@
   }
 
   &__buttons {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
     padding-left: $pSlide-cta;
   }
 

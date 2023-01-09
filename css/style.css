@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-.read-more .read-more__title, .product .product__title, .section__title, .advantages__list, .hero__pagination, .hero__title, .contacts, .nav, .property__heading, .btn, .link {
+.read-more .read-more__title, .product__title, .advantages__list, .hero__pagination, .hero__title, .contacts, .nav, .section__title, .property__heading, .btn, .link {
   text-transform: uppercase;
 }
 
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
   visibility: hidden;
 }
 
-.product_forge {
+.product_flit, .product_shade, .product_forge {
   background-position: top 9.4rem center, top center;
 }
 
@@ -114,6 +114,20 @@ body {
 }
 .link .link__txt {
   display: block;
+}
+
+.section-margin {
+  margin-bottom: 15rem;
+}
+
+.section-title-margin {
+  margin-bottom: 10rem;
+}
+
+.buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 }
 
 .btn {
@@ -245,6 +259,14 @@ body {
   line-height: 1.4;
 }
 
+.section__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 4.2rem;
+  color: #ffffff;
+  text-align: center;
+}
+
 .header {
   position: -webkit-sticky;
   position: sticky;
@@ -320,6 +342,9 @@ body {
   fill: #ffffff;
 }
 
+.hero {
+  position: relative;
+}
 .hero__slide-container {
   height: 75rem;
   display: flex;
@@ -371,9 +396,6 @@ body {
   background-color: #c51414;
 }
 .hero__buttons {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
   padding-left: 7vw;
 }
 .hero__img {
@@ -493,104 +515,88 @@ body {
   color: #c51414;
 }
 
-.props {
-  margin-bottom: 15rem;
-}
 .props__list {
   display: flex;
   flex-direction: column;
   gap: 10rem;
 }
 
-.products {
-  margin-top: 150px;
-}
-
-.section__title {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 4.2rem;
-  color: #ffffff;
-  text-align: center;
-}
-
-.products__list {
-  margin-top: 100px;
-}
-
 .product {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: #ffffff;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 750px;
+  height: 75rem;
   background-repeat: no-repeat;
 }
 .product_forge {
   background-image: url("../img/products/forge_bg-text.png"), url("../img/products/forge_bg.png");
 }
-.product .product__title {
+.product_shade {
+  background-image: url("../img/products/shade_bg-text.png"), url("../img/products/shade_bg.png");
+}
+.product_flit {
+  background-image: url("../img/products/flit_bg-text.png"), url("../img/products/flit_bg.png");
+}
+.product__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 6.6rem;
   color: #ffffff;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
   color: #c51414;
 }
-.product .product__advantages {
+.product__advantages {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3rem;
+  margin-bottom: 8rem;
 }
-.product .product__advantage-text {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1.8rem;
-  color: #ffffff;
+.product__advantage-text {
   display: block;
-  padding-left: 57px;
+  padding-left: 5.7rem;
   line-height: 1.4;
   background: url("../svg/icon_check.svg") no-repeat left center;
 }
-.product .product__price {
+.product__price {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 4.8rem;
   color: #ffffff;
-  margin-top: 80px;
-  padding-left: 70px;
+  padding-left: 7rem;
+  margin-bottom: 8rem;
   background: url("../svg/product_price_stroke.svg") no-repeat left center;
 }
-.product .product__buttons {
+.product__center {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+.product__slide {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 40px;
-  margin-top: 80px;
-}
-.product .product__center-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 40px;
 }
-.product .product__center-wrapper .product__image {
-  max-height: 500px;
+.product__image {
+  min-width: 0;
+  max-width: 100%;
 }
-.product .product__right-wrapper {
+.product__props {
   align-self: center;
   justify-self: flex-end;
 }
-.product .product__props-list {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1.8rem;
-  color: #ffffff;
+.product__props-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3rem;
 }
-.product .product__property {
-  padding-left: 30px;
+.product__property {
+  padding-left: 3rem;
   background: url("../svg/product_property_stroke.svg") no-repeat left center;
 }
 

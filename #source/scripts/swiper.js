@@ -1,7 +1,7 @@
 const swiper = new Swiper(".hero", {
-  // autoplay: {
-  //   delay: 3000,
-  // },
+  autoplay: {
+    delay: 3000,
+  },
   loop: true,
   speed: 1000,
   navigation: {
@@ -42,6 +42,23 @@ const swiper = new Swiper(".hero", {
         );
       }
     },
+  },
+});
+
+const productSlider = new Swiper(".product__center", {
+  loop: true,
+  speed: 0,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  scrollbar: {
+    el: ".swiper-scrollbar",
+    draggable: true,
+  },
+  effect: "fade",
+  fadeEffect: {
+    crossFade: true,
   },
 });
 
