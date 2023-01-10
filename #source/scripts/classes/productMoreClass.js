@@ -87,11 +87,17 @@ class ProductsMore {
         "Оплата та доставка",
       ];
 
-      tabArr.forEach((tab) => {
+      let propsDescription = document.createElement("div");
+      propsDescription.classList.add("headphone-properties__description");
+
+      tabArr.forEach((tab, index) => {
         let propsTag = document.createElement("li");
         propsTag.classList.add("headphone-properties__tag");
         let propsTagLink = document.createElement("a");
         propsTagLink.classList.add("headphone-properties__link", "link");
+        if (index === 0) {
+          propsTagLink.classList.add("headphone-properties__link_active");
+        }
         let propsTagTxt = document.createElement("span");
         propsTagTxt.classList.add("link__txt");
         propsTagTxt.textContent = tab;
@@ -100,15 +106,95 @@ class ProductsMore {
         propsTag.append(propsTagLink);
         propsTags.append(propsTag);
 
-        return propsTags;
+        let propsTagDesc = document.createElement("div");
+        propsTagDesc.classList.add("headphone-properties__tag-description");
+
+        switch (index) {
+          case 0:
+            let tagAbout = document.createElement("p");
+            tagAbout.classList.add("read-more__tag-description-text");
+            tagAbout.textContent = product.about;
+
+            propsTagDesc.append(tagAbout);
+            propsTagDesc.classList.add(
+              "headphone-properties__tag-description_active"
+            );
+
+            break;
+
+          case 1:
+            let tagCompList = document.createElement("ul");
+            tagCompList.classList.add("tag-description__list");
+
+            product.complectation.forEach((item) => {
+              let tagCompItem = document.createElement("li");
+              tagCompItem.classList.add("tag-description__item");
+
+              let tagCompTxt = document.createElement("span");
+              tagCompTxt.classList.add("tag-description__text");
+              tagCompTxt.textContent = item;
+              tagCompItem.append(tagCompTxt);
+              tagCompList.append(tagCompItem);
+            });
+
+            propsTagDesc.append(tagCompList);
+            break;
+          case 2:
+            let tagPropList = document.createElement("ul");
+            tagPropList.classList.add("tag-description__list");
+
+            product.props.forEach((item) => {
+              let tagPropItem = document.createElement("li");
+              tagPropItem.classList.add("tag-description__item");
+
+              let tagPropTxt = document.createElement("span");
+              tagPropTxt.classList.add("tag-description__text");
+              tagPropTxt.textContent = item;
+              tagPropItem.append(tagPropTxt);
+              tagPropList.append(tagPropItem);
+            });
+
+            propsTagDesc.append(tagPropList);
+            break;
+
+          default:
+            propsTagDesc.innerHTML = `
+						<div class="tag-description__wrapper payment">
+							<h4 class="tag-description__title payment-title">Доставка</h4>
+							<p class="tag-description__paragraph">
+								Безкоштовна доставка Новою Поштою до відділення
+							</p>
+							<p class="tag-description__paragraph">
+								Кур'єрська доставка оплачується згідно тарифів Нової Пошти
+							</p>
+						</div>
+						<div class="tag-description__wrapper return">
+							<h4 class="tag-description__title return-title">Оплата</h4>
+							<p class="tag-description__paragraph">
+								Ви можете обрати один із способів розрахування — післяплата,
+								оплата на картку Приват-банку, оплата кур'єру.
+							</p>
+							<p class="tag-description__paragraph">
+								Комісію при оплаті післяплатою платить Покупець, а при оплаті
+								на картку Приват-банку — Продавець
+							</p>
+						</div>
+						<div class="tag-description__wrapper payment">
+							<h4 class="tag-description__title payment-title">Гарантія</h4>
+							<p class="tag-description__paragraph">
+								Гарантія від виробника 24 місяці
+							</p>
+						</div>`;
+            break;
+        }
+
+        propsDescription.append(propsTagDesc);
+
+        return { propsTags, propsDescription };
       });
 
-      
-
-      let propsDescription = document.createElement('div');
-      propsDescription.classList.add
-
       propsWrapper.append(propsTags);
+      propsWrapper.append(propsDescription);
 
       this.productWrapper.append(closeBtnWrapper);
       this.productWrapper.append(productTitle);
