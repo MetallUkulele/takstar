@@ -53,6 +53,8 @@ class ProductsMore {
         return { swiperWrapper, slide, slideZoom, slideImg };
       });
 
+      gallery.append(swiperWrapper);
+
       //создаем кнопку с ценой
       let ctaWrapper = document.createElement("div");
       ctaWrapper.classList.add("read-more__cta-wrapper");
@@ -100,6 +102,11 @@ class ProductsMore {
 
         return propsTags;
       });
+
+      
+
+      let propsDescription = document.createElement('div');
+      propsDescription.classList.add
 
       propsWrapper.append(propsTags);
 
