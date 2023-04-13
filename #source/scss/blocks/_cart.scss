@@ -68,6 +68,11 @@
   &__btn-checkout {
     text-align: center;
   }
+
+  &__bullets {
+    position: absolute;
+    bottom: 40px;
+  }
 }
 
 .cart-item {

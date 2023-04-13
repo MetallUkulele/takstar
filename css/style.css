@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.cart-item__remove-txt, .cart-item__plus-txt, .cart-item__minus-txt, .cart__text, .messengers__link span {
+.cart-item__remove-txt, .cart-item__plus-txt, .cart-item__minus-txt, .cart__text, .messengers__link span, .bullet__txt {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -232,6 +232,20 @@ input[type=number]:focus {
 }
 .modal-close:hover {
   opacity: 1;
+}
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+}
+.bullet {
+  width: 3rem;
+  height: 3rem;
+  background-color: #300000;
+  border-radius: 50px;
+}
+.bullet_active {
+  border: 1px dashed #c51414;
 }
 
 .property {
@@ -883,6 +897,10 @@ input[type=number]:focus {
 }
 .cart-block__btn-checkout {
   text-align: center;
+}
+.cart-block__bullets {
+  position: absolute;
+  bottom: 40px;
 }
 
 .cart-item {

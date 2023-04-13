@@ -39,15 +39,15 @@ class Cart {
 
     this.checkoutBtn.append(this.checkoutBtnTxt);
 
-    this.bullets = document.createElement("div");
+    this.bullets = new Bullets().create;
     this.bullets.classList.add("cart-block__bullets");
-
     this.cart.append(this.cartWrapper);
     this.cartWrapper.append(this.closeCart);
     this.cartWrapper.append(this.title);
     this.cartWrapper.append(this.productsList);
     this.cartWrapper.append(this.finalPrice);
     this.cartWrapper.append(this.checkoutBtn);
+    this.cartWrapper.append(this.bullets);
     this.countFinalPrice();
   }
   //проверка открыта ли корзина
