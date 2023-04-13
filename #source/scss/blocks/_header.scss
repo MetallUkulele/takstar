@@ -1,4 +1,7 @@
 .header {
+  @include text-style($heading-ff, $fw-medium, $fzNav);
+  @extend %uppercase;
+
   position: sticky;
   top: 0;
   background: $colorBg;
@@ -30,9 +33,6 @@
   }
 }
 .nav {
-  @include text-style($heading-ff, $fw-medium, $fzNav);
-  @extend %uppercase;
-
   &__list {
     display: flex;
     justify-content: space-between;
@@ -58,17 +58,33 @@
   align-items: center;
   gap: 0.5rem;
   min-width: 17.6rem;
-  @include text-style($heading-ff, $fw-medium, $fzNav);
-  @extend %uppercase;
+
   cursor: pointer;
 
-  &__text {
-    display: block;
-  }
+  &__link {
+    transition: all 0.3s ease;
 
-  &__arrow {
-    min-width: 1.5rem;
-    fill: $colorTxt;
+    & span {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: "\e900";
+        font-family: "icomoon";
+        margin-right: 5px;
+        font-size: 2.4rem;
+        color: #fff;
+      }
+
+      &:hover::before {
+        color: $colorAccent;
+      }
+    }
+
+    &:hover {
+      padding-bottom: 1rem;
+      border-bottom: 1px $colorAccent solid;
+    }
   }
 }
 .messengers {
@@ -77,21 +93,22 @@
   gap: 1rem;
 
   &__item {
+    padding: 0.8rem;
   }
 
   &__link {
-  }
+    font-size: 2.4rem;
 
-  &__text {
-    @extend %hidden;
-  }
-
-  &__icon {
-    fill: $colorTxt;
+    & span {
+      @extend %hidden;
+    }
   }
 }
+ 
 .cart {
+  position: relative;
   &__link {
+    font-size: 3rem;
   }
 
   &__text {
@@ -100,5 +117,22 @@
 
   &__icon {
     fill: $colorTxt;
+  }
+
+  &__quantity {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 3px;
+    display: flex;
+    text-align: center;
+    font-size: 12px;
+    background-color: $colorDarkRed;
+    border: 1px dashed $colorAccent;
+    visibility: hidden;
+
+    &_active {
+      visibility: visible;
+    }
   }
 }

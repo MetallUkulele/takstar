@@ -1,7 +1,7 @@
 let forge = new Product(
   "forge",
   `Вибір <strong>справжнього</strong> геймера, є все для <strong>комфортної</strong> гри`,
-  "2 974 грн",
+  "2974",
   "./img/hero/forge.png",
   [
     "7.1 об’ємний звук",
@@ -24,7 +24,7 @@ let forge = new Product(
 let shade = new Product(
   "shade",
   "<strong>Надлегкі</strong> та <strong>комфортні</strong>, забезпечать вам <strong>довгу</strong> та водночас <strong>комфортну</strong> гру",
-  "3 032 грн",
+  "3032",
   "./img/hero/shade.png",
   [
     "Надлегкі — 235г",
@@ -47,7 +47,7 @@ let shade = new Product(
 let flit = new Product(
   "flit",
   "<strong>Найгучніший</strong> звук завдяки динаміку діаметром <strong>53мм</strong>",
-  "2 427 грн",
+  "2427",
   "./img/hero/flit.png",
   [
     "Потужний звук в 250мВт",
@@ -67,6 +67,9 @@ let flit = new Product(
   ["Навушники", "Інструкція"]
 );
 
+let products = new Products();
+products.addProduct(forge, shade, flit);
+
 let newSlider = new HeroSlider();
 newSlider.addSlide(forge, shade, flit);
 newSlider.createSlide();
@@ -77,3 +80,6 @@ prod.createProducts();
 
 let readMoreBlock = new ProductsMore(forge, shade, flit);
 readMoreBlock.createProductMore();
+
+let cart = new Cart();
+

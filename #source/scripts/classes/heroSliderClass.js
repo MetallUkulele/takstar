@@ -34,7 +34,7 @@ class HeroSlider {
       //создаем цену
       let price = document.createElement("strong");
       price.classList.add("hero__price");
-      price.textContent = slide.price;
+      price.textContent = slide.price + " " + slide.currency;
 
       //добавляем кнопки
 
@@ -65,6 +65,14 @@ class HeroSlider {
       //присваиваем дата-айди второстепенной кнопке
       let secondaryButtons = this.slider.querySelectorAll(".btn-secondary");
       secondaryButtons.forEach((btn) => {
+        if (!btn.getAttribute("data-id")) {
+          btn.setAttribute("data-id", slide.name);
+        }
+      });
+
+      //присваиваем дата-айди кнопке "заказать"
+      let mainBtns = this.slider.querySelectorAll(".btn-main");
+      mainBtns.forEach((btn) => {
         if (!btn.getAttribute("data-id")) {
           btn.setAttribute("data-id", slide.name);
         }

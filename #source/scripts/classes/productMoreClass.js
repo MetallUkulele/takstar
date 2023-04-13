@@ -14,14 +14,7 @@ class ProductsMore {
       );
       this.productWrapper.setAttribute("data-id", product.name);
 
-      let closeBtnWrapper = document.createElement("div");
-      closeBtnWrapper.classList.add("read-more__close-btn-wrapper");
-
-      let closeBtn = document.createElement("button");
-      closeBtn.classList.add("read-more__close-btn");
-      closeBtn.textContent = "X";
-
-      closeBtnWrapper.append(closeBtn);
+      let closeBtn = new CloseBtn().btn;
 
       let productTitle = document.createElement("h2");
       productTitle.classList.add("read-more__title");
@@ -61,9 +54,11 @@ class ProductsMore {
 
       let productPrice = document.createElement("span");
       productPrice.classList.add("read-more__price");
-      productPrice.textContent = product.price;
+      productPrice.textContent = product.price + " " + product.currency;
 
       let btn = new MainButton().btn;
+
+      btn.setAttribute("data-id", product.name);
 
       ctaWrapper.append(productPrice);
       ctaWrapper.append(btn);
@@ -196,7 +191,7 @@ class ProductsMore {
       propsWrapper.append(propsTags);
       propsWrapper.append(propsDescription);
 
-      this.productWrapper.append(closeBtnWrapper);
+      this.productWrapper.append(closeBtn);
       this.productWrapper.append(productTitle);
       this.productWrapper.append(gallery);
       this.productWrapper.append(ctaWrapper);

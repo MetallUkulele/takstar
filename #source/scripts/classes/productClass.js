@@ -13,6 +13,7 @@ class Product {
     this.name = name;
     this.subtitle = subtitle;
     this.price = price;
+    this.currency = "грн";
     this.img = img;
     this.advantages = advantages;
     this.props = props;
@@ -33,5 +34,15 @@ class Product {
     this.gallery = gallery;
     this.about = about;
     this.complectation = complectation;
+  }
+}
+
+class Products {
+  constructor() {
+    this.products = [];
+  }
+
+  addProduct(...product) {
+    this.products.push(...product);
   }
 }

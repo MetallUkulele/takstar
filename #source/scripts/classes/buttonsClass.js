@@ -22,7 +22,7 @@ class SecondaryButton {
   }
 
   set attr(value) {
-    this.secondaryButton.setAttribute('data-id', value);
+    this.secondaryButton.setAttribute("data-id", value);
   }
 }
 
@@ -38,5 +38,22 @@ class BtnGroup {
 
   get btns() {
     return this.btnGroup;
+  }
+}
+
+class CloseBtn {
+  constructor() {
+    this.closeBtnWrapper = document.createElement("div");
+    this.btn.classList.add("modal-close");
+
+    this.closeBtn = document.createElement("span");
+    this.closeBtn.classList.add("modal-close__btn");
+    this.closeBtn.textContent = "зачинити";
+
+    this.closeBtnWrapper.append(this.closeBtn);
+  }
+
+  get btn() {
+    return this.closeBtnWrapper;
   }
 }

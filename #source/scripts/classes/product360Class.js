@@ -42,7 +42,7 @@ class Product360 {
 
       let productPrice = document.createElement("div");
       productPrice.classList.add("product__price");
-      productPrice.textContent = product.price;
+      productPrice.textContent = product.price + " " + product.currency;
 
       let productBtns = new BtnGroup().btns;
 
@@ -114,6 +114,13 @@ class Product360 {
       let secondaryButtons =
         this.productList.querySelectorAll(".btn-secondary");
       secondaryButtons.forEach((btn) => {
+        if (!btn.getAttribute("data-id")) {
+          btn.setAttribute("data-id", product.name);
+        }
+      });
+
+      let mainBtns = this.productList.querySelectorAll(".btn-main");
+      mainBtns.forEach((btn) => {
         if (!btn.getAttribute("data-id")) {
           btn.setAttribute("data-id", product.name);
         }

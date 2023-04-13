@@ -45,7 +45,7 @@ $pSlide-cta: 7vw;
   position: absolute;
   width: 1px;
   height: 1px;
-  visibility: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 %product-bg-position {

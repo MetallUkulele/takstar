@@ -74,15 +74,15 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-.read-more .read-more__title, .product__title, .advantages__list, .hero__pagination, .hero__title, .contacts, .nav, .section__title, .property__heading, .btn, .link {
+.cart-item__name, .cart-block__title, .read-more__title, .product__title, .advantages__list, .hero__pagination, .hero__title, .header, .section__title, .property__heading, .btn, .link {
   text-transform: uppercase;
 }
 
-.cart__text, .messengers__text {
+.cart-item__remove-txt, .cart-item__plus-txt, .cart-item__minus-txt, .cart__text, .messengers__link span {
   position: absolute;
   width: 1px;
   height: 1px;
-  visibility: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .product_flit, .product_shade, .product_forge {
@@ -124,6 +124,19 @@ body {
   margin-bottom: 10rem;
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number],
+input[type=number]:hover,
+input[type=number]:focus {
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+}
+
 .buttons-group {
   display: flex;
   align-items: center;
@@ -144,13 +157,14 @@ body {
   transition: 0.2s;
 }
 .btn-main:after {
-  content: url("../svg/btn_stroke.svg");
+  content: "";
   display: block;
-  width: 171px;
-  height: 48px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 5px;
   left: 5px;
+  border: 1px solid #c51414;
   transition: 0.2s;
   z-index: -1;
 }
@@ -159,6 +173,14 @@ body {
 }
 .btn-main:hover:after {
   transform: translate(-5px, -5px);
+}
+.btn-main_disabled {
+  padding: 12px 36px;
+  background-color: #300000;
+  border: 1px solid #c51414;
+  animation-name: btn-text;
+  transform: translate(5px, 5px);
+  transition: 0.5s;
 }
 
 .btn-secondary {
@@ -187,6 +209,29 @@ body {
 }
 .btn-secondary:hover:after {
   transform: translateY(-5px);
+}
+
+.modal-close {
+  position: sticky;
+  top: 10rem;
+  margin-left: auto;
+  margin-right: 4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  z-index: 99999;
+  background: url("../svg/icon_close.svg") no-repeat center/cover;
+  opacity: 0.5;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.modal-close__btn {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+}
+.modal-close:hover {
+  opacity: 1;
 }
 
 .property {
@@ -268,7 +313,10 @@ body {
 }
 
 .header {
-  position: -webkit-sticky;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: #ffffff;
   position: sticky;
   top: 0;
   background: #2b2323;
@@ -292,12 +340,6 @@ body {
   width: 40rem;
 }
 
-.nav {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 1.4rem;
-  color: #ffffff;
-}
 .nav__list {
   display: flex;
   justify-content: space-between;
@@ -315,18 +357,28 @@ body {
   align-items: center;
   gap: 0.5rem;
   min-width: 17.6rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 1.4rem;
-  color: #ffffff;
   cursor: pointer;
 }
-.contacts__text {
-  display: block;
+.contacts__link {
+  transition: all 0.3s ease;
 }
-.contacts__arrow {
-  min-width: 1.5rem;
-  fill: #ffffff;
+.contacts__link span {
+  display: flex;
+  align-items: center;
+}
+.contacts__link span::before {
+  content: "\e900";
+  font-family: "icomoon";
+  margin-right: 5px;
+  font-size: 2.4rem;
+  color: #fff;
+}
+.contacts__link span:hover::before {
+  color: #c51414;
+}
+.contacts__link:hover {
+  padding-bottom: 1rem;
+  border-bottom: 1px #c51414 solid;
 }
 
 .messengers {
@@ -334,12 +386,35 @@ body {
   display: flex;
   gap: 1rem;
 }
-.messengers__icon {
-  fill: #ffffff;
+.messengers__item {
+  padding: 0.8rem;
 }
-
+.messengers__link {
+  font-size: 2.4rem;
+}
+.cart {
+  position: relative;
+}
+.cart__link {
+  font-size: 3rem;
+}
 .cart__icon {
   fill: #ffffff;
+}
+.cart__quantity {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding: 3px;
+  display: flex;
+  text-align: center;
+  font-size: 12px;
+  background-color: #300000;
+  border: 1px dashed #c51414;
+  visibility: hidden;
+}
+.cart__quantity_active {
+  visibility: visible;
 }
 
 .hero {
@@ -604,12 +679,12 @@ body {
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 70px;
+  top: 0;
   z-index: 100;
   transform: translate3d(-100%, 0, 0);
   background-color: #2b2323;
   overflow-y: auto;
-  transition: all ease-in 500ms;
+  transition: all ease-in 0.5s;
 }
 .aside_active {
   transform: translate3d(0, 0, 0);
@@ -618,30 +693,13 @@ body {
 .read-more {
   display: none;
   position: relative;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 .read-more_active {
   display: block;
 }
-.read-more .read-more__close-btn-wrapper {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 40px;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 99999;
-}
-.read-more .read-more__close-btn {
-  margin-right: 40px;
-  opacity: 0.5;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 4.2rem;
-  color: #ffffff;
-  background: none;
-}
-.read-more .read-more__title {
+.read-more__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 6.6rem;
@@ -649,38 +707,38 @@ body {
   text-align: center;
   color: #c51414;
 }
-.read-more .read-more__slider-container {
-  padding: 100px;
-  max-height: 800px;
+.read-more__slider-container {
+  padding: 10rem;
+  max-height: 80rem;
   overflow: hidden;
 }
-.read-more .read-more__slide {
-  min-height: 150px;
-  max-height: 800px;
+.read-more__slide {
+  min-height: 15rem;
+  max-height: 80rem;
 }
-.read-more .read-more__image {
+.read-more__image {
   text-align: center;
-  min-height: 150px;
-  max-height: 400px;
+  min-height: 15rem;
+  max-height: 40rem;
 }
-.read-more .read-more__cta-wrapper {
+.read-more__cta-wrapper {
   text-align: center;
   vertical-align: top;
 }
-.read-more .read-more__price {
+.read-more__price {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 2.4rem;
   color: #ffffff;
   display: inline-block;
-  margin-right: 35px;
-  padding-left: 70px;
+  margin-right: 3.5rem;
+  padding-left: 7rem;
   background: url("../svg/product_price_stroke.svg") no-repeat left center;
 }
-.read-more .read-more__tag-list {
-  margin-top: 50px;
-  padding-top: 40px;
-  padding-bottom: 80px;
+.read-more__tag-list {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  padding-bottom: 8rem;
 }
 .read-more_forge {
   background: url("../svg/read_more_forge_bg-grad.svg") no-repeat center center/cover;
@@ -692,66 +750,207 @@ body {
   margin-right: auto;
   background: url("../svg/read_more_bg.svg") no-repeat center top/100% 100%;
 }
-.headphone-properties .headphone-properties__tags {
+.headphone-properties__tags {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   justify-content: center;
-  margin-bottom: 45px;
-  margin-top: 40px;
+  margin-bottom: 4.5rem;
+  margin-top: 4rem;
 }
-.headphone-properties .headphone-properties__link {
+.headphone-properties__tag {
+  cursor: pointer;
+}
+.headphone-properties__link {
   display: block;
-  padding: 12px 20px;
+  padding: 1.2rem 2rem;
   border: 1px solid #300000;
   border-bottom: 1px solid #c51414;
-  transition: all ease 400ms;
+  transition: all ease 0.4s;
   opacity: 0.6;
 }
-.headphone-properties .headphone-properties__link:hover {
+.headphone-properties__link:hover {
   transform: scale3d(105%, 105%, 105%);
   opacity: 0.8;
 }
-.headphone-properties .headphone-properties__link:focus {
+.headphone-properties__link:focus {
   border: 1px solid #c51414;
 }
-.headphone-properties .headphone-properties__link_active {
+.headphone-properties__link_active {
   transform: scale3d(105%, 105%, 105%);
   border: 1px solid #c51414;
   opacity: 1;
 }
-.headphone-properties .headphone-properties__description {
+.headphone-properties__description {
   display: flex;
-  min-height: 250px;
+  min-height: 25rem;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
 }
-.headphone-properties .headphone-properties__description p,
-.headphone-properties .headphone-properties__description span {
+.headphone-properties__description p,
+.headphone-properties__description span {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: inherit;
   color: #ffffff;
   line-height: 1.4;
 }
-.headphone-properties .headphone-properties__description .tag-description__title {
-  margin-bottom: 20px;
+.headphone-properties__description .tag-description__title {
+  margin-bottom: 2rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 1.8rem;
   color: #ffffff;
 }
-.headphone-properties .headphone-properties__tag-description {
+.headphone-properties__tag-description {
   flex: 0 0 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding: 0 110px;
+  gap: 4rem;
+  padding: 0 11rem;
   transform: translateX(1800px);
   transition: all ease-in 600ms;
   order: 1;
 }
-.headphone-properties .headphone-properties__tag-description_active {
+.headphone-properties__tag-description_active {
   transform: translateX(0);
   order: 0;
+}
+
+.cart-block {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2b2323;
+  transition: 0.5s all;
+  transform: translateY(-200rem);
+}
+.cart-block_active {
+  transform: translateY(0);
+}
+.cart-block__wrapper {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  padding: 8rem 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #c51414;
+  border-bottom: 1px solid #c51414;
+}
+.cart-block__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 4rem;
+}
+.cart-block__product-list {
+  margin-bottom: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.cart-block .modal-close {
+  position: absolute;
+  top: 4rem;
+  right: 8rem;
+  margin: 0;
+}
+.cart-block .modal-close:hover {
+  opacity: 1;
+}
+.cart-block__price {
+  width: 100%;
+  margin-bottom: 8rem;
+  text-align: center;
+}
+.cart-block__btn-checkout {
+  text-align: center;
+}
+
+.cart-item {
+  width: 100%;
+  height: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+.cart-item__name-wrapper, .cart-item__quantity-wrapper, .cart-item__price-wrapper {
+  width: 100%;
+  border-right: 1px solid #c51414;
+}
+.cart-item__name-wrapper {
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.cart-item__name {
+  display: block;
+  margin-top: 14px;
+  margin-left: 5rem;
+}
+.cart-item_forge .cart-item__name-wrapper {
+  background-image: url(../img/products/forge/forge_min.png);
+}
+.cart-item_shade .cart-item__name-wrapper {
+  background-image: url(../img/products/shade/shade_min.png);
+}
+.cart-item_flit .cart-item__name-wrapper {
+  background-image: url(../img/products/flit/flit_min.png);
+}
+.cart-item__quantity-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-item__quantity {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-align: center;
+  background: none;
+}
+.cart-item__minus {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: url(../svg/icon_minus.svg) no-repeat center/contain;
+}
+.cart-item__plus {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: url(../svg/icon_plus.svg) no-repeat center/contain;
+}
+.cart-item__price-wrapper {
+  text-align: center;
+}
+.cart-item__price {
+  display: block;
+  margin-top: 14px;
+}
+.cart-item__remove {
+  position: relative;
+  margin-top: 14px;
+  width: 15px;
+  height: 15px;
+  background: url(../svg/icon_close.svg) no-repeat center/contain;
 }

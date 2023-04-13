@@ -16,13 +16,14 @@
   transition: 0.2s;
 
   &:after {
-    content: url("../svg/btn_stroke.svg");
+    content: "";
     display: block;
-    width: 171px;
-    height: 48px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 5px;
     left: 5px;
+    border: 1px solid $colorBtn;
     transition: 0.2s;
     z-index: -1;
   }
@@ -33,6 +34,16 @@
 
   &:hover:after {
     transform: translate(-5px, -5px);
+  }
+
+  &_disabled {
+    padding: 12px 36px;
+
+    background-color: $colorDarkRed;
+    border: 1px solid $colorBtn;
+    animation-name: btn-text;
+    transform: translate(5px, 5px);
+    transition: 0.5s;
   }
 }
 
@@ -64,5 +75,30 @@
 
   &:hover:after {
     transform: translateY(-5px);
+  }
+}
+
+.modal-close {
+  position: sticky;
+  top: 10rem;
+  margin-left: auto;
+  margin-right: 4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  z-index: 99999;
+  background: url("../svg/icon_close.svg") no-repeat center/cover;
+  opacity: 0.5;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &__btn {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    width: 1px;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
